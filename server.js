@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 mongoose.connect("mongodb+srv://test:test@cluster0.npe8jxd.mongodb.net/notesDB", { useNewUrlParser: true }, { useUnifiedTopology: true })
 
-// crwate a data schema
+// create a data schema
 const notesSchema = {
     title: String,
     content: String
@@ -21,13 +21,17 @@ app.get("/", function(req, res) {
     res.sendFile(__dirname + "/index.html");
 })
 
+app.get("/thx", function(req,res){
+    res.send("Your register is done!")
+})
+
 app.post("/", function(req,res){
     let newNode = new Note({
         title: req.body.title,
         content: req.body.content
     });
     newNode.save();
-    res.redirect('https://tippath.github.io/notesDB/');
+    res.redirect('/thx');
 })
 
 
