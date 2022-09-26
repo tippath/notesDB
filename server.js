@@ -27,7 +27,7 @@ app.post("/", function(req,res){
         content: req.body.content
     });
     newNode.save();
-    res.redirect('/index.html');
+    res.redirect('https://tippath.github.io/notesDB/');
 })
 
 
