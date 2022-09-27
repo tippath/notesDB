@@ -25,13 +25,14 @@ app.get("/thx", function(req,res){
     res.send("Your register is done!")
 })
 
-app.post("/", function(req,res){
+app.post("/", function(req,res,next){
     let newNode = new Note({
         title: req.body.title,
         content: req.body.content
     });
     newNode.save();
     res.redirect('/thx');
+    next();
 })
 
 
